@@ -1,0 +1,44 @@
+Live drive of bin/fm-crew-state.sh over an isolated firstmate home
+(real git worktree + real state/<id>.meta; the external `no-mistakes` CLI
+and `tmux` are stubbed on PATH, as this repo's own harness does).
+
+Each line below is exactly what a supervisor/agent reads for that crew.
+===========================================================================
+
+### crew-state reader from: /Users/davidbeihl/.no-mistakes/worktrees/b5ea5ab83d56/01M2AMH071HZD05GY3GXWDG09B/bin  (after)
+--- S1 outcome=passed, ci SKIPPED, forge PR 423 still OPEN (2026-09-10 incident shape)
+state: done · source: run-step · run passed: PR merge unconfirmed; check forge
+--- S2 outcome=checks-passed
+state: done · source: run-step · checks passed: PR state unconfirmed; check forge
+--- S3 active ci step, ci log tail reports checks green (positive evidence)
+state: done · source: run-step · checks green: PR ready for review (still monitoring for merge/close)
+--- S4 terminal failed, only the ci monitor failed after checks read green
+state: done · source: run-step · checks green: PR held for merge (ci monitor ended): https://github.com/o/r/pull/203
+
+### crew-state reader from: /private/tmp/nm-live-crewstate/base/bin  (before)
+--- S1 outcome=passed, ci SKIPPED, forge PR 423 still OPEN (2026-09-10 incident shape)
+state: done · source: run-step · run passed: PR merged/closed
+--- S2 outcome=checks-passed
+state: done · source: run-step · checks green: PR ready for review
+--- S3 active ci step, ci log tail reports checks green (positive evidence)
+state: done · source: run-step · checks green: PR ready for review (still monitoring for merge/close)
+--- S4 terminal failed, only the ci monitor failed after checks read green
+state: done · source: run-step · checks green: PR held for merge (ci monitor ended): https://github.com/o/r/pull/203
+
+===========================================================================
+Negative control: the two tests added in this change, run unmodified against
+the BASE-commit reader (fa65b5d bin/ + tests/, extracted to a scratch tree).
+Both fail there and pass on the change - fail-before / pass-after.
+---------------------------------------------------------------------------
+not ok - passed run must not claim the PR landed (unexpected: 'PR merged/closed')
+--- output ---
+state: done · source: run-step · run passed: PR merged/closed
+
+not ok - checks-passed run must not claim current PR readiness (unexpected: 'PR ready for review')
+--- output ---
+state: done · source: run-step · checks green: PR ready for review
+
+Note on the S1 fixture: the `ci,skipped` step row reproduces the 2026-09-10
+incident shape, but it is inert on this path - once `outcome` is set the reader
+never inspects the steps table, so the reading is driven by outcome=passed
+alone. No skipped-ci branch exists or is claimed to be exercised here.

@@ -1,0 +1,13 @@
+// bin/fm-fleet-snapshot.sh --json over the same isolated home (incident crew only).
+// Proves the downstream consumer still splits state/source and carries the new detail intact.
+{
+  "id": "mp-chat-grounding-fixes",
+  "current_state": {
+    "state": "done",
+    "source": "run-step",
+    "detail": "run passed: PR merge unconfirmed; check forge",
+    "raw": "state: done · source: run-step · run passed: PR merge unconfirmed; check forge",
+    "observed_at": "2026-09-12T12:00:32Z",
+    "freshness": "fresh"
+  }
+}

@@ -1,0 +1,8 @@
+$ fm-ci-test-evidence.sh --pr https://github.com/double-d-labs/go-easy-homie/pull/481 --required-job (5 full-suite jobs)
+test evidence violation: Web - Lint, Type Check & Build executed=0 skipped=unknown deselected=unknown (job skipped before producing a test log)
+test evidence violation: Backend - Lint, Type Check & Build executed=0 skipped=unknown deselected=unknown (job skipped before producing a test log)
+test evidence violation: Backend - Unit Tests executed=0 skipped=unknown deselected=unknown (job skipped before producing a test log)
+test evidence violation: Web - E2E Tests (Playwright) executed=0 skipped=unknown deselected=unknown (job skipped before producing a test log)
+test evidence violation: Mobile - Type Check & Tests executed=0 skipped=unknown deselected=unknown (job skipped before producing a test log)
+exit=1
+leftover TMPDIR entries:        0

@@ -1,0 +1,5 @@
+raw log excerpts for PR 485 Web - Lint, Type Check & Build (job 103789471325):
+2026-09-13T20:43:02.7219505Z ^[[31m⎯⎯⎯⎯⎯⎯^[[39m^[[1m^[[41m Unhandled Errors ^[[49m^[[22m^[[31m⎯⎯⎯⎯⎯⎯^[[39m
+2026-09-13T20:43:02.8049962Z ^[[2m Test Files ^[[22m ^[[2mno tests^[[22m
+2026-09-13T20:43:02.8088079Z ^[[2m     Errors ^[[22m ^[[1m^[[31m71 errors^[[39m^[[22m
+2026-09-13T20:43:02.8631089Z ^[[31m^[[1mError^[[22m: [vitest-pool]: Failed to start forks worker for test files /home/runner/work/go-easy-homie/go-easy-homie/web/src/__tests__/utils/authErrors.test.ts

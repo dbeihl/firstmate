@@ -1,0 +1,6 @@
+$ fm-ci-test-evidence.sh --pr https://github.com/double-d-labs/go-easy-homie/pull/485 --required-job (5 full-suite jobs)
+test evidence violation: Web - Lint, Type Check & Build errors=71 (collection errors are not executed tests)
+test evidence violation: Web - Lint, Type Check & Build executed=0 skipped=0 deselected=0
+test evidence violation: Web - E2E Tests (Playwright) executed=0 skipped=unknown deselected=unknown (job skipped before producing a test log)
+exit=1
+leftover TMPDIR entries: 0

@@ -1,0 +1,5 @@
+$ fm-ci-test-evidence.sh --pr https://github.com/double-d-labs/go-easy-homie/pull/480 --required-job "Backend - Unit Tests" --required-job "Mobile - Type Check & Tests" --required-job "Web - Lint, Type Check & Build" --required-job "Web - E2E Tests (Playwright)" --required-job "MCP - Build, Type Check & Tests"
+test evidence violation: Web - E2E Tests (Playwright) executed=99 skipped=3 deselected=0
+exit=1
+( TMPDIR=$L/tmp env -u GITHUB_ACTIONS -u CI bin/fm-ci-test-evidence.sh --pr  )  2.00s user 0.71s system 27% cpu 9.718 total
+leftover TMPDIR entries: 0

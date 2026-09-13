@@ -1,0 +1,8 @@
+$ fm-ci-test-evidence.sh --run https://github.com/double-d-labs/go-easy-homie/actions/runs/34758338707 --required-job "Backend - Unit Tests" --required-job "Mobile - Type Check & Tests" --required-job "Web - Lint, Type Check & Build" --required-job "Web - E2E Tests (Playwright)" --required-job "Backend - Lint, Type Check & Build"
+not measured: required job Web - E2E Tests (Playwright) log contained no pytest, Jest, Vitest, or Playwright test summary
+not measured: required job Backend - Lint, Type Check & Build log contained no pytest, Jest, Vitest, or Playwright test summary
+exit=1
+leftover TMPDIR entries: 0
+
+$ ... --required-job "Backend - Unit Tests"   (only the clean Jest job)
+exit=0

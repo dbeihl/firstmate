@@ -1,0 +1,10 @@
+$ fm-ci-test-evidence.sh --run https://github.com/pallets/click/actions/runs/34668069239 --required-job 3.13 --required-job Windows --required-job typing
+test evidence violation: 3.13 executed=2092 skipped=24 deselected=31000
+test evidence violation: Windows executed=2015 skipped=101 deselected=31000
+not measured: required job typing log contained no pytest, Jest, Vitest, or Playwright test summary
+exit=1
+leftover TMPDIR entries: 0
+
+raw pytest summary lines from GitHub (gh run view --job ... --log):
+3.13	2026-09-12T02:35:31.3785758Z ======== 2092 passed, 24 skipped, 31000 deselected, 1 xfailed in 6.59s =========
+Windows	2026-09-12T02:35:40.3566621Z ======= 2015 passed, 101 skipped, 31000 deselected, 1 xfailed in 6.47s ========

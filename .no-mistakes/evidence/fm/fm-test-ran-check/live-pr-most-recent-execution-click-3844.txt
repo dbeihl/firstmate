@@ -1,0 +1,11 @@
+pallets/click PR 3844 head 96b53b7 has two pull_request "Tests" runs: 33994604003 (21:59:25Z, older) and 33994692209 (22:01:08Z, newer), each with jobs 3.13 and Windows.
+
+$ fm-ci-test-evidence.sh --pr https://github.com/pallets/click/pull/3844 --required-job 3.13 --required-job Windows
+test evidence violation: 3.13 executed=1993 skipped=24 deselected=31000
+test evidence violation: Windows executed=1916 skipped=101 deselected=31000
+exit=1
+leftover TMPDIR entries: 0
+
+job logs fetched (separate bash -x trace run):
+gh-axi run view 33994692209 --job 101383056635
+gh-axi run view 33994692209 --job 101383056633

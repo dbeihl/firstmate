@@ -1,0 +1,18 @@
+== MCP - Build, Type Check & Tests [299 lines]
+2026-09-13T19:52:52.6281685Z ^[[2m Test Files ^[[22m ^[[1m^[[32m12 passed^[[39m^[[22m^[[90m (12)^[[39m
+== Backend - Lint, Type Check & Build [343 lines]
+== Web - Lint, Type Check & Build [14974 lines]
+2026-09-13T19:55:20.8569254Z ^[[2m Test Files ^[[22m ^[[1m^[[32m75 passed^[[39m^[[22m^[[90m (75)^[[39m
+== Mobile - Type Check & Tests [329 lines]
+2026-09-13T19:55:42.5950515Z Test Suites: 95 passed, 95 total
+2026-09-13T19:55:42.5951332Z Tests:       1648 passed, 1648 total
+== Backend - Unit Tests [13979 lines]
+2026-09-13T19:57:12.9352820Z Test Suites: 80 passed, 80 total
+2026-09-13T19:57:12.9353522Z Tests:       1890 passed, 1890 total
+2026-09-13T19:57:12.9354394Z Snapshots:   5 passed, 5 total
+== Web - E2E Tests (Playwright) [1107 lines]
+2026-09-13T19:59:38.1054278Z   3 skipped
+2026-09-13T19:59:38.1054731Z   99 passed (2.3m)
+  99 passed (2.3m)
+MCP - Build, Type Check & Tests	2026-09-13T19:52:52.6288604Z ^[[2m      Tests ^[[22m ^[[1m^[[32m97 passed^[[39m^[[22m^[[90m (97)^[[39m
+Web - Lint, Type Check & Build	2026-09-13T19:55:20.8613049Z ^[[2m      Tests ^[[22m ^[[1m^[[32m1777 passed^[[39m^[[22m^[[90m (1777)^[[39m

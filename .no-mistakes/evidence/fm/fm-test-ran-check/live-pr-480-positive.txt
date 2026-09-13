@@ -1,0 +1,4 @@
+PR 480 head 444da67: CI run 34779011527 (19:52:25Z, newer, no MCP job) and MCP CI run 34779011438 (19:52:24Z, only MCP job).
+$ fm-ci-test-evidence.sh --pr https://github.com/double-d-labs/go-easy-homie/pull/480 --required-job "Backend - Unit Tests" --required-job "Mobile - Type Check & Tests" --required-job "Web - Lint, Type Check & Build" --required-job "MCP - Build, Type Check & Tests"
+exit=0 (no output: all four jobs measured with executed>0 and zero skipped/deselected/errors)
+leftover TMPDIR entries: 0

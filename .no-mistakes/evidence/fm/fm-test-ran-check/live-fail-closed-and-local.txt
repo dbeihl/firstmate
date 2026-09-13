@@ -1,0 +1,62 @@
+$ absent required job on real run 34779011527 (local)
+absent: required job Integration Tests was not present in https://github.com/double-d-labs/go-easy-homie/actions/runs/34779011527
+exit=1
+
+$ nonexistent run id, contributor laptop (no GITHUB_ACTIONS)
+not checked: Actions jobs for run 1 could not be read
+exit=0
+
+$ nonexistent run id, GITHUB_ACTIONS=true
+unverified: Actions jobs for run 1 could not be read
+exit=1
+
+$ bogus GH_TOKEN on real PR 480, local
+not checked: pull request https://github.com/double-d-labs/go-easy-homie/pull/480 could not be read
+exit=0
+
+$ bogus GH_TOKEN on real PR 480, GITHUB_ACTIONS=true
+unverified: pull request https://github.com/double-d-labs/go-easy-homie/pull/480 could not be read
+exit=1
+
+$ gh-axi not on PATH, local
+not checked: GitHub Actions evidence could not be read because gh-axi is unavailable
+exit=0
+
+$ gh-axi not on PATH, CI=true
+unverified: GitHub Actions evidence could not be read because gh-axi is unavailable
+exit=1
+
+$ missing --required-job
+error: name at least one --required-job
+exit=2
+
+$ malformed PR URL
+error: invalid GitHub pull request URL
+exit=2
+
+$ --help
+fm-ci-test-evidence.sh - verify required GitHub Actions test jobs from their
+own logs rather than their green check conclusions.
+
+Usage:
+  fm-ci-test-evidence.sh --pr https://github.com/OWNER/REPO/pull/N --required-job NAME [--required-job NAME ...]
+  fm-ci-test-evidence.sh --run https://github.com/OWNER/REPO/actions/runs/RUN --required-job NAME [--required-job NAME ...]
+
+A required job is matched by its exact GitHub Actions job name.
+A PR measures each required job in the most recent Actions run for its current
+head commit that contains that job, while --run examines that exact run.
+Every job with a required name there is measured from the pytest, Jest, Vitest,
+and Playwright summaries in its full log; executed counts passed plus failed
+tests, with Playwright flaky tests counted as passed.
+The checker prints nothing and exits zero when every required job has a
+positive executed count with zero skipped, deselected, errored, and interrupted
+tests. It prints only violations: absent jobs, unreadable logs, unmeasured
+logs, collection errors, interrupted tests, or nonzero skipped/deselected counts.
+
+An unavailable GitHub read is deliberately non-fatal outside CI, where a
+contributor may lack the services or credentials required to inspect a run.
+The same condition fails closed when GITHUB_ACTIONS=true, so configuration
+drift cannot turn a required measurement into a green skip.
+exit=0
+
+leftover TMPDIR entries: 0

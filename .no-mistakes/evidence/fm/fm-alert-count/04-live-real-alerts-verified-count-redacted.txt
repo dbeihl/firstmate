@@ -1,0 +1,158 @@
+LIVE RUN — real gh-axi 0.1.35, real GitHub Dependabot API, real open alert list (44 alerts) of a
+PRIVATE work repository. Repository identity, npm package names and product paths are redacted with stable
+tokens (pkg-A..pkg-L) because this evidence is published to a public branch. Line shapes are unmodified.
+
+Setup (local only, nothing pushed): `gh repo clone <private-repo> -- --depth 1`, origin left at
+https://github.com/<private-repo>.git. Three local commits edit only package-lock.json "version" fields:
+  integration (off main):  api lock pkg-J + pkg-C -> first patched (4.1.11);  web lock pkg-G -> 3.4.13 (past both ranges);
+                           web lock adds npm alias copy "node_modules/pkg-I-alias": {"name":"pkg-I","version":"8.5.15"}
+  security (off integration):
+    web pkg-H 4.3.0 -> 4.3.2 (patched)          web pkg-A 2.10.40 -> 2.11.0 (patched)
+    web pkg-F 6.30.4 -> 7.18.0 (TAKEN MAJOR)    web pkg-K 3.3.12 -> 4.0.0 (lands inside the advisory's other range)
+    web root pkg-D 1.1.14 -> 1.1.18 (nested 2.1.0 / 5.0.6 copies left vulnerable)
+    web root pkg-I 8.5.15 -> 8.5.23 (alias copy left at 8.5.15)
+    api pkg-I 8.5.15 -> 8.5.23 (patched)        api pkg-J 4.1.11 -> 3.2.6 (REINTRODUCED)
+  nolock (off security): deletes the api package-lock.json
+
+Naive "alerts on packages the branch bumped" tally for integration..security = 21. Verified count below = 7.
+
+$ fm-alert-count.py integration security
+VERIFIED BRANCH REMEDIATION COUNT: 7 (#71 pkg-H (apps/web/package-lock.json), #68 pkg-A (apps/web/package-lock.json), #57 pkg-I (apps/web/api/package-lock.json), #52 pkg-H (apps/web/package-lock.json), #46 pkg-I (apps/web/api/package-lock.json), #44 pkg-F (apps/web/package-lock.json), #43 pkg-F (apps/web/package-lock.json))
+DEFAULT-BRANCH CAVEAT: 7 verified branch remediation(s) close none now. Dependabot advisories attach to the default branch and close only after release to it.
+EXCLUDED FROM THE VERIFIED COUNT:
+- #70 pkg-J (apps/web/package-lock.json): rejected major, patch requires 4.1.11
+- #69 pkg-C (apps/web/package-lock.json): rejected major, patch requires 4.1.11
+- #67 pkg-J (apps/web/api/package-lock.json): security reintroduces a vulnerable copy
+- #66 pkg-C (apps/web/api/package-lock.json): already resolved on integration
+- #65 pkg-B (apps/web/package-lock.json): security does not reach a patched version
+- #64 pkg-E (apps/web/package-lock.json): security does not reach a patched version
+- #63 pkg-E (apps/web/package-lock.json): security does not reach a patched version
+- #62 pkg-D (apps/web/package-lock.json): security does not reach a patched version
+- #61 pkg-D (apps/web/package-lock.json): security does not reach a patched version
+- #60 pkg-K (apps/web/package-lock.json): rejected major, patch requires 5.1.6
+- #59 pkg-K (apps/web/api/package-lock.json): security does not reach a patched version
+- #58 pkg-I (apps/web/package-lock.json): security does not reach a patched version
+- #56 pkg-K (apps/web/package-lock.json): rejected major, patch requires 5.1.16
+- #55 pkg-K (apps/web/api/package-lock.json): security does not reach a patched version
+- #51 pkg-G (apps/web/package-lock.json): already resolved on integration
+- #50 pkg-D (apps/web/package-lock.json): security does not reach a patched version
+- #49 pkg-D (apps/web/package-lock.json): security does not reach a patched version
+- #48 pkg-D (apps/web/package-lock.json): security does not reach a patched version
+- #47 pkg-I (apps/web/package-lock.json): security does not reach a patched version
+- #45 pkg-D (apps/web/package-lock.json): security does not reach a patched version
+- #41 pkg-G (apps/web/package-lock.json): already resolved on integration
+- #28 pkg-D (apps/web/package-lock.json): security does not reach a patched version
+- #27 pkg-D (apps/web/package-lock.json): security does not reach a patched version
+- #26 pkg-D (apps/web/package-lock.json): security does not reach a patched version
+NOT CHECKED:
+- #40 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #39 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #38 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #37 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #36 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #35 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #34 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #33 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #32 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #31 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #30 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #29 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #25 pkg-L (<redacted>/uv.lock): unsupported manifest
+exit=1
+
+$ fm-alert-count.py main main   # adversarial: branch changed nothing
+VERIFIED BRANCH REMEDIATION COUNT: 0 (none)
+DEFAULT-BRANCH CAVEAT: 0 verified branch remediation(s) close none now. Dependabot advisories attach to the default branch and close only after release to it.
+EXCLUDED FROM THE VERIFIED COUNT:
+- #71 pkg-H (apps/web/package-lock.json): main does not reach a patched version
+- #70 pkg-J (apps/web/package-lock.json): rejected major, patch requires 4.1.11
+- #69 pkg-C (apps/web/package-lock.json): rejected major, patch requires 4.1.11
+- #68 pkg-A (apps/web/package-lock.json): main does not reach a patched version
+- #67 pkg-J (apps/web/api/package-lock.json): rejected major, patch requires 4.1.11
+- #66 pkg-C (apps/web/api/package-lock.json): rejected major, patch requires 4.1.11
+- #65 pkg-B (apps/web/package-lock.json): main does not reach a patched version
+- #64 pkg-E (apps/web/package-lock.json): main does not reach a patched version
+- #63 pkg-E (apps/web/package-lock.json): main does not reach a patched version
+- #62 pkg-D (apps/web/package-lock.json): main does not reach a patched version
+- #61 pkg-D (apps/web/package-lock.json): main does not reach a patched version
+- #60 pkg-K (apps/web/package-lock.json): main does not reach a patched version
+- #59 pkg-K (apps/web/api/package-lock.json): main does not reach a patched version
+- #58 pkg-I (apps/web/package-lock.json): main does not reach a patched version
+- #57 pkg-I (apps/web/api/package-lock.json): main does not reach a patched version
+- #56 pkg-K (apps/web/package-lock.json): main does not reach a patched version
+- #55 pkg-K (apps/web/api/package-lock.json): main does not reach a patched version
+- #52 pkg-H (apps/web/package-lock.json): main does not reach a patched version
+- #51 pkg-G (apps/web/package-lock.json): main does not reach a patched version
+- #50 pkg-D (apps/web/package-lock.json): main does not reach a patched version
+- #49 pkg-D (apps/web/package-lock.json): main does not reach a patched version
+- #48 pkg-D (apps/web/package-lock.json): main does not reach a patched version
+- #47 pkg-I (apps/web/package-lock.json): main does not reach a patched version
+- #46 pkg-I (apps/web/api/package-lock.json): main does not reach a patched version
+- #45 pkg-D (apps/web/package-lock.json): main does not reach a patched version
+- #44 pkg-F (apps/web/package-lock.json): rejected major, patch requires 7.18.0
+- #43 pkg-F (apps/web/package-lock.json): rejected major, patch requires 7.18.0
+- #41 pkg-G (apps/web/package-lock.json): main does not reach a patched version
+- #28 pkg-D (apps/web/package-lock.json): main does not reach a patched version
+- #27 pkg-D (apps/web/package-lock.json): main does not reach a patched version
+- #26 pkg-D (apps/web/package-lock.json): main does not reach a patched version
+NOT CHECKED:
+- #40 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #39 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #38 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #37 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #36 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #35 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #34 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #33 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #32 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #31 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #30 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #29 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #25 pkg-L (<redacted>/uv.lock): unsupported manifest
+exit=1
+
+$ fm-alert-count.py integration nolock   # adversarial: head lockfile missing
+VERIFIED BRANCH REMEDIATION COUNT: 5 (#71 pkg-H (apps/web/package-lock.json), #68 pkg-A (apps/web/package-lock.json), #52 pkg-H (apps/web/package-lock.json), #44 pkg-F (apps/web/package-lock.json), #43 pkg-F (apps/web/package-lock.json))
+DEFAULT-BRANCH CAVEAT: 5 verified branch remediation(s) close none now. Dependabot advisories attach to the default branch and close only after release to it.
+EXCLUDED FROM THE VERIFIED COUNT:
+- #70 pkg-J (apps/web/package-lock.json): rejected major, patch requires 4.1.11
+- #69 pkg-C (apps/web/package-lock.json): rejected major, patch requires 4.1.11
+- #65 pkg-B (apps/web/package-lock.json): nolock does not reach a patched version
+- #64 pkg-E (apps/web/package-lock.json): nolock does not reach a patched version
+- #63 pkg-E (apps/web/package-lock.json): nolock does not reach a patched version
+- #62 pkg-D (apps/web/package-lock.json): nolock does not reach a patched version
+- #61 pkg-D (apps/web/package-lock.json): nolock does not reach a patched version
+- #60 pkg-K (apps/web/package-lock.json): rejected major, patch requires 5.1.6
+- #58 pkg-I (apps/web/package-lock.json): nolock does not reach a patched version
+- #56 pkg-K (apps/web/package-lock.json): rejected major, patch requires 5.1.16
+- #51 pkg-G (apps/web/package-lock.json): already resolved on integration
+- #50 pkg-D (apps/web/package-lock.json): nolock does not reach a patched version
+- #49 pkg-D (apps/web/package-lock.json): nolock does not reach a patched version
+- #48 pkg-D (apps/web/package-lock.json): nolock does not reach a patched version
+- #47 pkg-I (apps/web/package-lock.json): nolock does not reach a patched version
+- #45 pkg-D (apps/web/package-lock.json): nolock does not reach a patched version
+- #41 pkg-G (apps/web/package-lock.json): already resolved on integration
+- #28 pkg-D (apps/web/package-lock.json): nolock does not reach a patched version
+- #27 pkg-D (apps/web/package-lock.json): nolock does not reach a patched version
+- #26 pkg-D (apps/web/package-lock.json): nolock does not reach a patched version
+NOT CHECKED:
+- #67 pkg-J (apps/web/api/package-lock.json): apps/web/api/package-lock.json is unavailable at nolock
+- #66 pkg-C (apps/web/api/package-lock.json): apps/web/api/package-lock.json is unavailable at nolock
+- #59 pkg-K (apps/web/api/package-lock.json): apps/web/api/package-lock.json is unavailable at nolock
+- #57 pkg-I (apps/web/api/package-lock.json): apps/web/api/package-lock.json is unavailable at nolock
+- #55 pkg-K (apps/web/api/package-lock.json): apps/web/api/package-lock.json is unavailable at nolock
+- #46 pkg-I (apps/web/api/package-lock.json): apps/web/api/package-lock.json is unavailable at nolock
+- #40 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #39 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #38 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #37 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #36 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #35 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #34 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #33 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #32 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #31 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #30 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #29 pkg-L (<redacted>/uv.lock): unsupported manifest
+- #25 pkg-L (<redacted>/uv.lock): unsupported manifest
+exit=1

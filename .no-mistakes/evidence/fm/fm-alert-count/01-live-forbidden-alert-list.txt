@@ -1,0 +1,4 @@
+$ bin/fm-alert-count.py b182d0f f2f2d70   # origin = https://github.com/kunchenguid/firstmate.git (no Dependabot read permission)
+NOT CHECKED: gh-axi api: error: Insufficient permissions for this action
+code: FORBIDDEN
+exit=1

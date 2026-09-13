@@ -1,0 +1,6 @@
+real gh-axi 0.1.35 output for: gh-axi api '/users/dbeihl/repos?per_page=5' --paginate --jq '[.[] | {name}] | @base64' --full
+raw TOON (first 160 chars): api_response:\n  body: "W3sibmFtZSI6ImNvbG9yLWFuYWx5c2lzIn0seyJuYW1lIjoiZGJlaWhsLmdpdGh1Yi5pbyJ9LHsibmFtZSI6ImZpcnN0bWF0ZSJ9LHsibmFtZSI6ImphcGFuLWl0aW5lcmFyeSJ9L
+pages extracted by gh_axi_pages(): 2
+page 1: 5 records
+page 2: 2 records
+total records decoded: 7

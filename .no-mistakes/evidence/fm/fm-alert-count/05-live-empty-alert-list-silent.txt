@@ -1,0 +1,5 @@
+LIVE RUN — real gh-axi against a private work repository (identity redacted) whose live open Dependabot alert list is empty.
+$ gh api "/repos/<private-repo-2>/dependabot/alerts?state=open&per_page=100" --jq length
+0
+$ fm-alert-count.py main security   # local repo, origin=https://github.com/<private-repo-2>.git
+stdout bytes=0 exit=0

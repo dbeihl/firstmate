@@ -1,0 +1,3 @@
+$ bin/fm-alert-count.py main main   # origin = /private/tmp/not-github
+NOT CHECKED: origin is not a GitHub repository, so the live alert list was not checked
+exit=1

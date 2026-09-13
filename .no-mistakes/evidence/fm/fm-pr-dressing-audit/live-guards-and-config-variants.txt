@@ -1,0 +1,219 @@
+# Live guard and configuration-variant runs against real gh
+# commit: a1ebf4d2d3c4612620a34017d4fce6c43cafbd41
+# date: 2026-09-13T22:02:36Z
+
+### numeric repository name (gabrielecirulli/2048), real GraphQL review query
+$ FM_HOME=<isolated> bin/fm-pr-dressing-audit.sh gabrielecirulli/2048
+exit: 0
+stdout:
+  https://github.com/gabrielecirulli/2048/pull/633: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/633: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/631: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/631: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/621: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/621: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/619: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/619: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/616: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/616: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/613: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/613: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/612: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/612: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/606: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/606: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/605: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/605: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/601: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/601: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/592: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/592: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/590: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/590: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/589: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/589: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/587: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/587: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/585: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/585: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/583: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/583: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/575: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/575: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/574: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/574: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/567: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/567: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/562: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/562: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/557: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/557: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/557: mergeable is CONFLICTING, not MERGEABLE
+  https://github.com/gabrielecirulli/2048/pull/554: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/554: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/538: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/538: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/535: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/535: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/535: mergeable is CONFLICTING, not MERGEABLE
+  https://github.com/gabrielecirulli/2048/pull/531: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/531: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/528: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/528: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/526: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/526: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/524: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/524: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/524: mergeable is CONFLICTING, not MERGEABLE
+  https://github.com/gabrielecirulli/2048/pull/523: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/523: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/511: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/511: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/506: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/506: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/506: mergeable is CONFLICTING, not MERGEABLE
+  https://github.com/gabrielecirulli/2048/pull/505: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/505: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/486: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/486: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/484: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/484: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/481: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/481: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/479: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/479: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/462: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/462: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/454: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/454: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/453: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/453: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/449: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/449: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/438: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/438: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/434: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/434: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/410: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/410: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/409: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/409: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/405: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/405: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/398: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/398: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/393: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/393: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/387: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/387: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/363: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/363: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/339: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/339: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/339: mergeable is CONFLICTING, not MERGEABLE
+  https://github.com/gabrielecirulli/2048/pull/335: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/335: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/302: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/302: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/290: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/290: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/285: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/285: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/271: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/271: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/269: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/269: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/265: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/265: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/265: mergeable is CONFLICTING, not MERGEABLE
+  https://github.com/gabrielecirulli/2048/pull/250: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/250: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/250: mergeable is CONFLICTING, not MERGEABLE
+  https://github.com/gabrielecirulli/2048/pull/241: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/241: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/228: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/228: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/207: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/207: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/206: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/206: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/192: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/192: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/160: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/160: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/155: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/155: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/150: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/150: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/148: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/148: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/127: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/127: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/123: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/123: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/119: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/119: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/103: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/103: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/49: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/49: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/33: reviewer team missing: owner/team-slug
+  https://github.com/gabrielecirulli/2048/pull/33: assignees missing: dbeihl
+  https://github.com/gabrielecirulli/2048/pull/33: mergeable is CONFLICTING, not MERGEABLE
+stderr:
+
+### configured extra required check is now reported (Web - Lint, Type Check & Build added)
+$ FM_HOME=<isolated> bin/fm-pr-dressing-audit.sh double-d-labs/go-easy-homie
+exit: 0
+stdout:
+  https://github.com/double-d-labs/go-easy-homie/pull/485: base branch is main; expected develop
+  https://github.com/double-d-labs/go-easy-homie/pull/485: reviewer team missing: double-d-labs/double-d-labs-reviewers
+  https://github.com/double-d-labs/go-easy-homie/pull/485: assignees missing: dbeihl
+  https://github.com/double-d-labs/go-easy-homie/pull/485: required check failing: CI gate
+  https://github.com/double-d-labs/go-easy-homie/pull/485: required check failing: Web - Lint, Type Check & Build
+stderr:
+
+### repository with no configuration entry
+$ FM_HOME=<isolated> bin/fm-pr-dressing-audit.sh cli/cli
+exit: 2
+stdout:
+stderr:
+  fm-pr-dressing-audit: invalid or missing configuration for cli/cli in /private/tmp/fm-dressing-live.TW7vkG/home/config/pr-dressing-audit.json
+
+### unqualified reviewer team slug rejected as invalid configuration
+$ FM_HOME=<isolated> bin/fm-pr-dressing-audit.sh bare/team
+exit: 2
+stdout:
+stderr:
+  fm-pr-dressing-audit: invalid or missing configuration for bare/team in /private/tmp/fm-dressing-live.TW7vkG/home/config/pr-dressing-audit.json
+
+### argument not owner/repository
+$ FM_HOME=<isolated> bin/fm-pr-dressing-audit.sh go-easy-homie
+exit: 2
+stdout:
+stderr:
+  fm-pr-dressing-audit: repository must be owner/repository
+
+### configuration file absent
+$ FM_HOME=<isolated> bin/fm-pr-dressing-audit.sh double-d-labs/go-easy-homie
+exit: 2
+stdout:
+stderr:
+  fm-pr-dressing-audit: configuration not found: /private/tmp/fm-dressing-live.TW7vkG/empty/config/pr-dressing-audit.json
+
+### no argument
+$ FM_HOME=<isolated> bin/fm-pr-dressing-audit.sh 
+exit: 2
+stdout:
+stderr:
+  Usage: fm-pr-dressing-audit.sh <owner/repository>
+  
+  Audit every open GitHub pull request in the named repository against its entry
+  in config/pr-dressing-audit.json.  The command is silent when every configured
+  rule passes and prints only violations otherwise.
+  
+  It checks a configured integration branch, reviewer team, assignees,
+  mergeability, and configured required checks that are currently failing.
+  It does not infer branch protection, review approvals, merge authority, or
+  required checks absent from configuration.
+

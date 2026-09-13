@@ -1,0 +1,31 @@
+# Live run at target commit: bin/fm-pr-dressing-audit.sh double-d-labs/go-easy-homie
+# commit: f2a63bdd1ceb15716dc631b5794051993c6287e3  date: 2026-09-13T22:38:40Z
+# isolated FM_HOME config: {"repositories":{"double-d-labs/go-easy-homie":{"integration_branch":"develop","reviewer_team":"double-d-labs/double-d-labs-reviewers","assignees":["dbeihl"],"required_checks":["CI gate"]}}}
+exit: 0
+## stdout
+https://github.com/double-d-labs/go-easy-homie/pull/485: base branch is main; expected develop
+https://github.com/double-d-labs/go-easy-homie/pull/485: reviewer team missing: double-d-labs/double-d-labs-reviewers
+https://github.com/double-d-labs/go-easy-homie/pull/485: assignees missing: dbeihl
+https://github.com/double-d-labs/go-easy-homie/pull/485: required check failing: CI gate
+## stderr
+## gh invocations (logging tee shim over /opt/homebrew/bin/gh)
+subcommand: api graphql
+arg: api
+arg: graphql
+arg: --paginate
+arg: --slurp
+arg: -f
+arg: query=<661 chars; contains mutation: no>
+arg: -f
+arg: owner=double-d-labs
+arg: -f
+arg: repo=go-easy-homie
+## data the audit consumed, per PR (assignee logins other than the configured one elided)
+{"number":480,"base":"main","head":"develop","crossRepository":false,"mergeable":"MERGEABLE","configuredAssigneePresent":true,"requestedTeams":["double-d-labs/double-d-labs-reviewers"],"reviewedOnBehalfOf":["double-d-labs/double-d-labs-reviewers"],"ciGate":["COMPLETED/SUCCESS 2026-09-13T19:59:44Z workflow=CI"]}
+{"number":485,"base":"main","head":"dependabot/npm_and_yarn/backend/npm_and_yarn-dd5407c44e","crossRepository":false,"mergeable":"MERGEABLE","configuredAssigneePresent":false,"requestedTeams":[],"reviewedOnBehalfOf":[],"ciGate":["COMPLETED/FAILURE 2026-09-13T20:46:50Z workflow=CI"]}
+## independent ground truth via a different gh path (gh pr checks, gh pr list)
+CI gate	fail	4s	https://github.com/double-d-labs/go-easy-homie/actions/runs/34781586257/job/103790096440	
+CI gate	pass	3s	https://github.com/double-d-labs/go-easy-homie/actions/runs/34779011527/job/103783405349	
+#485 base=main head=dependabot/npm_and_yarn/backend/npm_and_yarn-dd5407c44e assignees=0 teamRequests=[]
+#480 base=main head=develop assignees=2 teamRequests=["double-d-labs/double-d-labs-reviewers"]
+## expected: PR 485 reported on all four configured rules; PR 480 (same-repo develop->main release, team requested, assignee present, CI gate green) silent

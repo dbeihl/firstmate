@@ -1,0 +1,15 @@
+# Team rule satisfied by a real review on behalf of the team (PR 480), with pending team requests removed by a shim
+# commit: a1ebf4d2d3c4612620a34017d4fce6c43cafbd41   date: 2026-09-13T22:10:44Z
+# Real GraphQL shows PR 480 review onBehalfOf: double-d-labs/double-d-labs-reviewers
+## run A: reviewRequests stripped, real on-behalf review data kept (exit 0)
+https://github.com/double-d-labs/go-easy-homie/pull/485: base branch is main; expected develop
+https://github.com/double-d-labs/go-easy-homie/pull/485: reviewer team missing: double-d-labs/double-d-labs-reviewers
+https://github.com/double-d-labs/go-easy-homie/pull/485: assignees missing: dbeihl
+https://github.com/double-d-labs/go-easy-homie/pull/485: required check failing: CI gate
+## run B (control): reviewRequests stripped AND on-behalf review data stripped (exit 0)
+https://github.com/double-d-labs/go-easy-homie/pull/485: base branch is main; expected develop
+https://github.com/double-d-labs/go-easy-homie/pull/485: reviewer team missing: double-d-labs/double-d-labs-reviewers
+https://github.com/double-d-labs/go-easy-homie/pull/485: assignees missing: dbeihl
+https://github.com/double-d-labs/go-easy-homie/pull/485: required check failing: CI gate
+https://github.com/double-d-labs/go-easy-homie/pull/480: reviewer team missing: double-d-labs/double-d-labs-reviewers
+## note: an earlier control attempt exited 2 ('could not read pull request reviews') because the test shim wrapped the GraphQL array twice; fixed shim above.

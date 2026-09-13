@@ -1,0 +1,44 @@
+[
+  {
+    "number": 485,
+    "baseRefName": "main",
+    "headRefName": "dependabot/npm_and_yarn/backend/npm_and_yarn-dd5407c44e",
+    "isCrossRepository": false,
+    "assignee_count": 0,
+    "dbeihl_assigned": false,
+    "team_review_requests": [],
+    "mergeable": "MERGEABLE",
+    "ci_gate_runs": [
+      {
+        "workflowName": "CI",
+        "status": "COMPLETED",
+        "conclusion": "FAILURE",
+        "startedAt": "2026-09-13T20:46:50Z"
+      }
+    ],
+    "failing_unconfigured_checks": [
+      "Web - Lint, Type Check & Build"
+    ]
+  },
+  {
+    "number": 480,
+    "baseRefName": "main",
+    "headRefName": "develop",
+    "isCrossRepository": false,
+    "assignee_count": 2,
+    "dbeihl_assigned": true,
+    "team_review_requests": [
+      "double-d-labs/double-d-labs-reviewers"
+    ],
+    "mergeable": "MERGEABLE",
+    "ci_gate_runs": [
+      {
+        "workflowName": "CI",
+        "status": "COMPLETED",
+        "conclusion": "SUCCESS",
+        "startedAt": "2026-09-13T19:59:44Z"
+      }
+    ],
+    "failing_unconfigured_checks": []
+  }
+]

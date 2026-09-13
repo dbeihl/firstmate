@@ -1,0 +1,72 @@
+# Live rule-by-rule check on busy public repositories at target commit
+# commit: f2a63bdd1ceb15716dc631b5794051993c6287e3  date: 2026-09-13T23:04:35Z
+# Method: the audit ran against real GitHub through a tee shim over /opt/homebrew/bin/gh. f2a63bd-independent-rule-oracle.jq restates the documented rules (docs/configuration.md)
+# without the audit's jq, runs over the exact bytes the audit consumed, and its sorted output is diffed against the audit's stdout.
+# required_checks = every distinct check/status name seen on open PRs (95 for biome, 111 for pnpm), so the check rule runs over all real check data.
+
+### biomejs/biome
+config (required_checks elided): {"integration_branch":"next","reviewer_team":"owner/team-slug","assignees":["siketyan"],"required_checks":"<95 names>"}
+audit exit: 0  wall secs: 16  stderr: []  GraphQL pages: 6  PRs: 126
+audit lines: 486  oracle lines: 486  sorted diff: IDENTICAL
+mergeable states in data: ["CONFLICTING=71","MERGEABLE=55"]
+  lines "base branch is main": 95
+  lines "reviewer team missing": 126
+  lines "assignees missing": 120
+  lines "mergeable is CONFLICTING": 71
+  lines "required check failing": 74
+  lines mentioning UNKNOWN: 0
+superseded failures (earlier run of same name+workflow FAILED, latest SUCCESS) and audit lines for them:
+  #11162 Validate PR title [2026-08-01T14:29:22Z FAILURE -> 2026-08-01T14:34:34Z FAILURE -> 2026-08-01T14:36:59Z SUCCESS -> 2026-08-18T23:06:59Z SUCCESS]: silent
+  #11163 Validate PR title [2026-08-01T14:34:37Z FAILURE -> 2026-08-01T14:37:03Z SUCCESS -> 2026-08-18T23:07:28Z SUCCESS]: silent
+  #11164 Validate PR title [2026-08-01T14:34:42Z FAILURE -> 2026-08-01T14:37:07Z SUCCESS -> 2026-08-18T23:07:47Z SUCCESS]: silent
+  #11165 Validate PR title [2026-08-01T14:34:47Z FAILURE -> 2026-08-01T14:37:11Z SUCCESS -> 2026-08-18T23:08:12Z SUCCESS]: silent
+  #11166 Validate PR title [2026-08-01T14:34:50Z FAILURE -> 2026-08-01T14:37:16Z SUCCESS -> 2026-08-18T23:08:33Z SUCCESS]: silent
+pending latest runs (not COMPLETED) and audit lines for them:
+commit statuses not SUCCESS and audit lines for them:
+  #11372 renovate/artifacts [FAILURE]: REPORTED
+  #11645 renovate/stability-days [PENDING]: silent
+
+### pnpm/pnpm
+config (required_checks elided): {"integration_branch":"develop","reviewer_team":"owner/team-slug","assignees":["KSXGitHub"],"required_checks":"<111 names>"}
+audit exit: 0  wall secs: 33  stderr: []  GraphQL pages: 10  PRs: 232
+audit lines: 892  oracle lines: 892  sorted diff: IDENTICAL
+mergeable states in data: ["CONFLICTING=1","MERGEABLE=5","UNKNOWN=226"]
+  lines "base branch is main": 229
+  lines "reviewer team missing": 232
+  lines "assignees missing": 231
+  lines "mergeable is CONFLICTING": 1
+  lines "required check failing": 199
+  lines mentioning UNKNOWN: 0
+superseded failures (earlier run of same name+workflow FAILED, latest SUCCESS) and audit lines for them:
+  #10604 Audit dependencies [2026-02-12T22:11:59Z FAILURE -> 2026-02-12T22:12:38Z SUCCESS]: silent
+pending latest runs (not COMPLETED) and audit lines for them:
+  #14877 Analyze (javascript) [IN_PROGRESS]: silent
+  #14877 Build HEAD on blacksmith-8vcpu-ubuntu-2404 [IN_PROGRESS]: silent
+  #14877 Build benchmark executor [IN_PROGRESS]: silent
+  #14877 Build main on blacksmith-8vcpu-ubuntu-2404 [IN_PROGRESS]: silent
+  #14877 Code Coverage [IN_PROGRESS]: silent
+  #14877 Run benchmark on blacksmith-8vcpu-ubuntu-2404 [IN_PROGRESS]: silent
+  #14877 Rust CI / Clippy [IN_PROGRESS]: silent
+  #14877 Rust CI / Doc [IN_PROGRESS]: silent
+  #14877 Rust CI / Dylint [IN_PROGRESS]: silent
+  #14877 Rust CI / Test / macos [IN_PROGRESS]: silent
+  #14877 Rust CI / Test / ubuntu [IN_PROGRESS]: silent
+  #14877 Rust CI / Test / windows [IN_PROGRESS]: silent
+  #14877 Rust CI / npm Wrapper / windows [IN_PROGRESS]: silent
+commit statuses not SUCCESS and audit lines for them:
+  #14877 CodeRabbit [PENDING]: silent
+
+### same-repository release PR exemption (biome integration_branch=next)
+#11046 base=main head=next crossRepository=false
+  base-branch line for it: none
+
+### GitHub's own view via gh pr checks (separate API path)
+$ gh pr checks 11162 --repo biomejs/biome | Validate PR title
+Validate PR title	pass	32s	https://github.com/biomejs/biome/actions/runs/32195777459/job/95899361978	
+$ gh pr checks 11372 --repo biomejs/biome | renovate/artifacts
+renovate/artifacts	fail	0		Artifact file update failure
+$ gh pr checks 10604 --repo pnpm/pnpm | Audit dependencies
+Audit dependencies	fail	9s	https://github.com/pnpm/pnpm/actions/runs/21966247934/job/63456735848	
+Audit dependencies	pass	9s	https://github.com/pnpm/pnpm/actions/runs/21966266961/job/63456801129	
+note: pnpm #10604's two 'Audit dependencies' runs are one workflow (Audit, .github/workflows/audit.yml) on the same head commit: run 21966247934 event=push failure 22:11:57Z, run 21966266961 event=pull_request success 22:12:35Z.
+      gh pr checks keeps both because it also keys on event; the audit keeps the latest per name+workflow (the rule chosen in review round 1), so it is silent.

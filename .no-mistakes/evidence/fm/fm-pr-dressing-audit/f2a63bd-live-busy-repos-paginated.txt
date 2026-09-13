@@ -1,0 +1,47 @@
+# Live runs at target commit against busy public repositories that returned HTTP 504 at a1ebf4d (100-PR gh pr list pages)
+# commit: f2a63bdd1ceb15716dc631b5794051993c6287e3  date: 2026-09-13T22:41:04Z
+# config: {"integration_branch":"develop","reviewer_team":"owner/team-slug","assignees":["login-one"],"required_checks":["CI gate"]}  (reviewer_team does not exist, so every open PR must emit exactly one 'reviewer team missing' line)
+# completeness oracle: distinct PR URLs in audit stdout == repository.pullRequests(states:OPEN).totalCount from a separate gh api graphql call
+
+### biomejs/biome
+audit exit: 0   wall secs: 14   audit stderr: []
+GraphQL pages fetched (first:25): 6   PR nodes: 126   unique PR numbers: 126
+distinct PR URLs in audit stdout: 126   'reviewer team missing' lines: 126   open PR totalCount now: {"errors":[{"type":"RATE_LIMIT","code":"graphql_rate_limit","message":"API rate limit already exceeded for user ID 51423378."}]}gh: API rate limit already exceeded for user ID 51423378.
+violation line counts by rule:
+  base branch is main: 96
+  reviewer team missing: 126
+  assignees missing: 126
+  mergeable is CONFLICTING: 71
+  required check failing: 0
+first 6 stdout lines:
+  https://github.com/biomejs/biome/pull/5715: base branch is main; expected develop
+  https://github.com/biomejs/biome/pull/5715: reviewer team missing: owner/team-slug
+  https://github.com/biomejs/biome/pull/5715: assignees missing: login-one
+  https://github.com/biomejs/biome/pull/5715: mergeable is CONFLICTING, not MERGEABLE
+  https://github.com/biomejs/biome/pull/6952: base branch is main; expected develop
+  https://github.com/biomejs/biome/pull/6952: reviewer team missing: owner/team-slug
+
+### pnpm/pnpm
+audit exit: 0   wall secs: 24   audit stderr: []
+GraphQL pages fetched (first:25): 10   PR nodes: 232   unique PR numbers: 232
+distinct PR URLs in audit stdout: 232   'reviewer team missing' lines: 232   open PR totalCount now: {"errors":[{"type":"RATE_LIMIT","code":"graphql_rate_limit","message":"API rate limit already exceeded for user ID 51423378."}]}gh: API rate limit already exceeded for user ID 51423378.
+violation line counts by rule:
+  base branch is main: 229
+  reviewer team missing: 232
+  assignees missing: 232
+  mergeable is CONFLICTING: 199
+  required check failing: 0
+first 6 stdout lines:
+  https://github.com/pnpm/pnpm/pull/3302: base branch is main; expected develop
+  https://github.com/pnpm/pnpm/pull/3302: reviewer team missing: owner/team-slug
+  https://github.com/pnpm/pnpm/pull/3302: assignees missing: login-one
+  https://github.com/pnpm/pnpm/pull/3302: mergeable is CONFLICTING, not MERGEABLE
+  https://github.com/pnpm/pnpm/pull/3992: base branch is main; expected develop
+  https://github.com/pnpm/pnpm/pull/3992: reviewer team missing: owner/team-slug
+
+## totalCount correction (2026-09-13T23:05:25Z)
+The 'open PR totalCount now' fields above were written while the account's GraphQL budget was exhausted (see f2a63bd-live-api-refusal-fails-closed.txt).
+Immediately after the 22:39Z audit runs, before exhaustion, the same totalCount query returned biomejs/biome=126 and pnpm/pnpm=232 (console transcript), equal to the distinct PR URLs above.
+biomejs/biome totalCount re-queried now: 126
+pnpm/pnpm totalCount re-queried now: 232
+re-run at 23:01Z with other configs (f2a63bd-live-rule-oracle-busy-repos.txt): biome PR nodes=126 distinct audited URLs=126; pnpm PR nodes=232 distinct audited URLs=232

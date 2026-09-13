@@ -1,0 +1,23 @@
+# Live runs at target commit: fork branch named like the integration branch, numeric repository name with UNKNOWN mergeability, nonexistent repository
+# commit: f2a63bdd1ceb15716dc631b5794051993c6287e3  date: 2026-09-13T23:05:04Z
+# config for all three: {"integration_branch":"develop","reviewer_team":"owner/team-slug","assignees":["login-one"],"required_checks":["CI gate"]}
+
+### mate-academy/rda_task_12_backup_database (177 open PRs, many from forks whose branch is named develop)
+audit exit: 0  stderr: []  GraphQL pages: 8  audit lines: 531  independent oracle: IDENTICAL
+PRs into main with head branch develop: {"count":109,"crossRepository":109,"sameRepository":0}
+of those fork PRs, how many lack 'base branch is main; expected develop': 0
+sample lines:
+  https://github.com/mate-academy/rda_task_12_backup_database/pull/3: base branch is main; expected develop
+  https://github.com/mate-academy/rda_task_12_backup_database/pull/5: base branch is main; expected develop
+  https://github.com/mate-academy/rda_task_12_backup_database/pull/6: base branch is main; expected develop
+
+### gabrielecirulli/2048 (numeric repository name, sent as GraphQL String via -f)
+gh args: arg: owner=gabrielecirulli arg: repo=2048 
+audit exit: 0  stderr: []  GraphQL pages: 3  PRs: 73  audit lines: 154  independent oracle: IDENTICAL
+mergeable in data: ["CONFLICTING=8","MERGEABLE=57","UNKNOWN=8"]
+UNKNOWN PRs: 49 150 206 207 290 335 363 484   audit lines mentioning them as unmergeable: 0
+CONFLICTING PRs: 33 250 265 339 506 524 535 557   audit CONFLICTING lines for: 33 250 265 339 506 524 535 557 
+
+### kunchenguid/this-repository-does-not-exist-fm-audit
+audit exit: 2  stdout lines: 0  stderr: [fm-pr-dressing-audit: could not read open pull requests for kunchenguid/this-repository-does-not-exist-fm-audit]
+gh stderr (captured by shim; audit discards it): gh: Could not resolve to a Repository with the name 'kunchenguid/this-repository-does-not-exist-fm-audit'.

@@ -1,0 +1,89 @@
+# Live guard runs of the real script at target commit (real gh on PATH unless noted)
+# commit: f2a63bdd1ceb15716dc631b5794051993c6287e3  date: 2026-09-13T22:41:47Z
+
+### no argument
+$ env FM_HOME=<tmp>/guards/home bin/fm-pr-dressing-audit.sh 
+exit: 2
+stdout: []
+stderr: [Usage: fm-pr-dressing-audit.sh <owner/repository>
+
+Audit every open GitHub pull request in the named repository against its entry
+in config/pr-dressing-audit.json.  The command is silent when every configured
+rule passes and prints only violations otherwise.
+
+It checks a configured integration branch, reviewer team, assignees,
+mergeability, and configured required checks that are currently failing.
+It does not infer branch protection, review approvals, merge authority, or
+required checks absent from configuration.]
+
+### repository without owner
+$ env FM_HOME=<tmp>/guards/home bin/fm-pr-dressing-audit.sh biome 
+exit: 2
+stdout: []
+stderr: [fm-pr-dressing-audit: repository must be owner/repository]
+
+### two arguments
+$ env FM_HOME=<tmp>/guards/home bin/fm-pr-dressing-audit.sh a/b c/d 
+exit: 2
+stdout: []
+stderr: [Usage: fm-pr-dressing-audit.sh <owner/repository>
+
+Audit every open GitHub pull request in the named repository against its entry
+in config/pr-dressing-audit.json.  The command is silent when every configured
+rule passes and prints only violations otherwise.
+
+It checks a configured integration branch, reviewer team, assignees,
+mergeability, and configured required checks that are currently failing.
+It does not infer branch protection, review approvals, merge authority, or
+required checks absent from configuration.]
+
+### help
+$ env FM_HOME=<tmp>/guards/home bin/fm-pr-dressing-audit.sh --help 
+exit: 0
+stdout: [Usage: fm-pr-dressing-audit.sh <owner/repository>
+
+Audit every open GitHub pull request in the named repository against its entry
+in config/pr-dressing-audit.json.  The command is silent when every configured
+rule passes and prints only violations otherwise.
+
+It checks a configured integration branch, reviewer team, assignees,
+mergeability, and configured required checks that are currently failing.
+It does not infer branch protection, review approvals, merge authority, or
+required checks absent from configuration.]
+stderr: []
+
+### config file absent
+$ env FM_HOME=<tmp>/guards/empty bin/fm-pr-dressing-audit.sh pnpm/pnpm 
+exit: 2
+stdout: []
+stderr: [fm-pr-dressing-audit: configuration not found: /private/tmp/fm-dressing-live-f2a63bd/guards/empty/config/pr-dressing-audit.json]
+
+### reviewer_team not organization-qualified (bare team name)
+$ env FM_HOME=<tmp>/guards/home bin/fm-pr-dressing-audit.sh pnpm/pnpm 
+exit: 2
+stdout: []
+stderr: [fm-pr-dressing-audit: invalid or missing configuration for pnpm/pnpm in /private/tmp/fm-dressing-live-f2a63bd/guards/home/config/pr-dressing-audit.json]
+
+### required_checks field missing
+$ env FM_HOME=<tmp>/guards/home bin/fm-pr-dressing-audit.sh pnpm/pnpm 
+exit: 2
+stdout: []
+stderr: [fm-pr-dressing-audit: invalid or missing configuration for pnpm/pnpm in /private/tmp/fm-dressing-live-f2a63bd/guards/home/config/pr-dressing-audit.json]
+
+### repository absent from configuration
+$ env FM_HOME=<tmp>/guards/home bin/fm-pr-dressing-audit.sh other/repo 
+exit: 2
+stdout: []
+stderr: [fm-pr-dressing-audit: invalid or missing configuration for other/repo in /private/tmp/fm-dressing-live-f2a63bd/guards/home/config/pr-dressing-audit.json]
+
+### configuration is not JSON
+$ env FM_HOME=<tmp>/guards/home bin/fm-pr-dressing-audit.sh pnpm/pnpm 
+exit: 2
+stdout: []
+stderr: [fm-pr-dressing-audit: invalid or missing configuration for pnpm/pnpm in /private/tmp/fm-dressing-live-f2a63bd/guards/home/config/pr-dressing-audit.json]
+
+### gh absent from PATH
+$ env PATH=<tmp>/guards/nogh:/usr/bin:/bin FM_HOME=<tmp>/guards/home bin/fm-pr-dressing-audit.sh pnpm/pnpm 
+exit: 2
+stdout: []
+stderr: [fm-pr-dressing-audit: gh not found]

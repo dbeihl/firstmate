@@ -1,0 +1,28 @@
+# Reviewer-team rule at target commit against double-d-labs/go-easy-homie
+# commit: f2a63bdd1ceb15716dc631b5794051993c6287e3  date: 2026-09-13T23:05:05Z
+# Real state: PR 480 has the team requested AND a review on its behalf; PR 485 has neither.
+
+### LIVE reviewer_team=double-d-labs/double-d-labs-reviewers
+exit: 0
+https://github.com/double-d-labs/go-easy-homie/pull/485: reviewer team missing: double-d-labs/double-d-labs-reviewers
+
+### LIVE reviewer_team=double-d-labs/not-the-reviewers
+exit: 0
+https://github.com/double-d-labs/go-easy-homie/pull/480: reviewer team missing: double-d-labs/not-the-reviewers
+https://github.com/double-d-labs/go-easy-homie/pull/485: reviewer team missing: double-d-labs/not-the-reviewers
+
+### LIVE reviewer_team=other-org/double-d-labs-reviewers
+exit: 0
+https://github.com/double-d-labs/go-easy-homie/pull/480: reviewer team missing: other-org/double-d-labs-reviewers
+https://github.com/double-d-labs/go-easy-homie/pull/485: reviewer team missing: other-org/double-d-labs-reviewers
+
+### NOT LIVE (real gh response, filtered by a shim): pending team requests removed, on-behalf review data kept; reviewer_team=double-d-labs/double-d-labs-reviewers
+exit: 0
+https://github.com/double-d-labs/go-easy-homie/pull/485: reviewer team missing: double-d-labs/double-d-labs-reviewers
+
+### NOT LIVE control: pending team requests AND on-behalf review data removed
+exit: 0
+https://github.com/double-d-labs/go-easy-homie/pull/480: reviewer team missing: double-d-labs/double-d-labs-reviewers
+https://github.com/double-d-labs/go-easy-homie/pull/485: reviewer team missing: double-d-labs/double-d-labs-reviewers
+
+# Public repositories probed for an open PR reviewed on behalf of a team with no pending request (grafana/grafana, nodejs/node, electron/electron, github/docs, hashicorp/terraform-provider-aws): onBehalfOf is empty for a non-member viewer, so no fully live case exists.

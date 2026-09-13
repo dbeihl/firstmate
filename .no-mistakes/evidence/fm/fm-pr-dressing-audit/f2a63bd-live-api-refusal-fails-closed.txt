@@ -1,0 +1,31 @@
+# Live: GitHub GraphQL API refuses the audit mid-run or up front (account's hourly GraphQL budget exhausted by concurrent use)
+# commit: f2a63bdd1ceb15716dc631b5794051993c6287e3  date: 2026-09-13T22:41:59Z
+# rate limit at time of capture: {"data":{"rateLimit":{"remaining":0,"resetAt":"2026-09-13T22:59:55Z"}}}
+
+### failed-parallel/oracle-pnpm (pnpm/pnpm)
+audit exit: 2
+audit stdout lines: 0
+audit stderr: fm-pr-dressing-audit: could not read open pull requests for pnpm/pnpm
+bytes gh wrote to stdout before failing: 10078   last 80 bytes: ate_limit","message":"API rate limit already exceeded for user ID 51423378."}]}]
+
+### failed-parallel/oracle-biome (biomejs/biome)
+audit exit: 2
+audit stdout lines: 0
+audit stderr: fm-pr-dressing-audit: could not read open pull requests for biomejs/biome
+bytes gh wrote to stdout before failing: 79794   last 80 bytes: ate_limit","message":"API rate limit already exceeded for user ID 51423378."}]}]
+
+### oracle-biome (biomejs/biome)
+audit exit: 2
+audit stdout lines: 0
+audit stderr: fm-pr-dressing-audit: could not read open pull requests for biomejs/biome
+bytes gh wrote to stdout before failing: 130   last 80 bytes: ate_limit","message":"API rate limit already exceeded for user ID 51423378."}]}]
+gh stderr (captured by shim; the audit discards it): gh: API rate limit already exceeded for user ID 51423378.
+
+### ratelimited-geh (double-d-labs/go-easy-homie)
+audit exit: 2
+audit stdout lines: 0
+audit stderr: fm-pr-dressing-audit: could not read open pull requests for double-d-labs/go-easy-homie
+bytes gh wrote to stdout before failing: 130   last 80 bytes: ate_limit","message":"API rate limit already exceeded for user ID 51423378."}]}]
+gh stderr (captured by shim; the audit discards it): gh: API rate limit already exceeded for user ID 51423378.
+
+## expected: exit 2, zero report lines, even when gh already emitted pages before failing (the two parallel runs were cut off mid-pagination)

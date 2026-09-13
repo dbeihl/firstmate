@@ -1,0 +1,55 @@
+# Live run: bin/fm-pr-dressing-audit.sh tokio-rs/axum with required_checks ["check (.)"]
+# commit: a1ebf4d2d3c4612620a34017d4fce6c43cafbd41
+# run date: 2026-09-13T22:07:36Z
+# Oracle computed independently (sort_by startedAt | last; failing = COMPLETED with FAILURE/TIMED_OUT/CANCELLED/ACTION_REQUIRED/STARTUP_FAILURE)
+# from the exact gh pr list JSON the audit consumed (tee shim).
+exit: 0
+## oracle
+{
+  "latest_failing": [
+    {
+      "n": 3885,
+      "latest": "2026-09-08T08:07:37Z COMPLETED/FAILURE"
+    },
+    {
+      "n": 3833,
+      "latest": "2026-07-11T22:11:03Z COMPLETED/FAILURE"
+    },
+    {
+      "n": 3796,
+      "latest": "2026-08-20T07:39:13Z COMPLETED/FAILURE"
+    },
+    {
+      "n": 3734,
+      "latest": "2026-04-22T03:35:53Z COMPLETED/FAILURE"
+    },
+    {
+      "n": 3297,
+      "latest": "2026-04-04T17:48:20Z COMPLETED/CANCELLED"
+    }
+  ],
+  "superseded_failure": [
+    {
+      "n": 3680,
+      "runs": [
+        "2026-03-06T15:55:30Z COMPLETED/FAILURE",
+        "2026-03-11T13:13:54Z COMPLETED/SUCCESS"
+      ],
+      "latest_failing": false,
+      "earlier_failing": true,
+      "pending": false
+    }
+  ],
+  "pending": []
+}
+## expected PRs (latest run failing): 3297 3734 3796 3833 3885 
+## PRs audit reported as 'required check failing: check (.)': 3297 3734 3796 3833 3885 
+## MATCH
+## audit required-check lines:
+https://github.com/tokio-rs/axum/pull/3885: required check failing: check (.)
+https://github.com/tokio-rs/axum/pull/3833: required check failing: check (.)
+https://github.com/tokio-rs/axum/pull/3796: required check failing: check (.)
+https://github.com/tokio-rs/axum/pull/3734: required check failing: check (.)
+https://github.com/tokio-rs/axum/pull/3297: required check failing: check (.)
+## superseded-failure PRs (earlier run failed, latest passed) in audit output:
+  pull/3680: no required-check line (expected)

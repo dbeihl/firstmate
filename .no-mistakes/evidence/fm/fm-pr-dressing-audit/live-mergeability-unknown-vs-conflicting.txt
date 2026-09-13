@@ -1,0 +1,19 @@
+# Live run: bin/fm-pr-dressing-audit.sh gabrielecirulli/2048 (public repo, numeric name)
+# commit: a1ebf4d2d3c4612620a34017d4fce6c43cafbd41
+# date: 2026-09-13T22:03:11Z
+# The gh shim tees the exact 'gh pr list' JSON the audit consumed, so the comparison below is against the same snapshot.
+exit: 0
+stderr: 
+PRs GitHub reported UNKNOWN in consumed payload: 484 363 335 290 207 206 150 49
+PRs GitHub reported CONFLICTING in consumed payload (sorted): 33 250 265 339 506 524 535 557 
+PRs the audit reported as unmergeable (sorted): 33 250 265 339 506 524 535 557 
+audit output lines mentioning UNKNOWN: 0
+## audit mergeability lines
+https://github.com/gabrielecirulli/2048/pull/557: mergeable is CONFLICTING, not MERGEABLE
+https://github.com/gabrielecirulli/2048/pull/535: mergeable is CONFLICTING, not MERGEABLE
+https://github.com/gabrielecirulli/2048/pull/524: mergeable is CONFLICTING, not MERGEABLE
+https://github.com/gabrielecirulli/2048/pull/506: mergeable is CONFLICTING, not MERGEABLE
+https://github.com/gabrielecirulli/2048/pull/339: mergeable is CONFLICTING, not MERGEABLE
+https://github.com/gabrielecirulli/2048/pull/265: mergeable is CONFLICTING, not MERGEABLE
+https://github.com/gabrielecirulli/2048/pull/250: mergeable is CONFLICTING, not MERGEABLE
+https://github.com/gabrielecirulli/2048/pull/33: mergeable is CONFLICTING, not MERGEABLE

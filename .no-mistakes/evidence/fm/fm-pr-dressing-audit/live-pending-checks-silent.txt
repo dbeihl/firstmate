@@ -1,0 +1,62 @@
+# Live runs: pending required checks must be silent; latest-failing ones reported
+# commit: a1ebf4d2d3c4612620a34017d4fce6c43cafbd41
+# Oracle computed from the exact gh pr list JSON each audit run consumed (tee shim).
+
+### blck-snwmn/transcript-remotion required_checks=["lint","renovate/stability-days"]
+exit: 0   stderr: 
+oracle pending (latest run not finished) — must NOT be reported:
+  {"n":5,"check":"renovate/stability-days","type":"StatusContext","state":"PENDING","conclusion":null,"failing":false,"pending":true}
+oracle failing (latest run failed) — must be reported: []
+audit required-check lines:
+pending PRs appearing in required-check lines:
+  none (PASS)
+failing set MATCH
+
+### DaSchTour/dasch-ng required_checks=["main"]
+exit: 0   stderr: 
+oracle pending (latest run not finished) — must NOT be reported:
+  {"n":954,"check":"main","type":"CheckRun","state":"IN_PROGRESS","conclusion":"","failing":false,"pending":true}
+  {"n":885,"check":"main","type":"CheckRun","state":"QUEUED","conclusion":"","failing":false,"pending":true}
+  {"n":823,"check":"main","type":"CheckRun","state":"IN_PROGRESS","conclusion":"","failing":false,"pending":true}
+oracle failing (latest run failed) — must be reported: ["1008: main","1009: main","1038: main","1039: main","1052: main","1057: main","1060: main","1069: main","1090: main","1099: main","1101: main","741: main","750: main","763: main","766: main","779: main","866: main","874: main","902: main","938: main","950: main","951: main","953: main","973: main","974: main","975: main"]
+audit required-check lines:
+  https://github.com/DaSchTour/dasch-ng/pull/1101: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/1099: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/1090: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/1069: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/1060: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/1057: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/1052: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/1039: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/1038: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/1009: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/1008: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/975: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/974: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/973: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/953: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/951: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/950: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/938: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/902: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/874: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/866: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/779: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/766: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/763: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/750: required check failing: main
+  https://github.com/DaSchTour/dasch-ng/pull/741: required check failing: main
+pending PRs appearing in required-check lines:
+  none (PASS)
+failing set MATCH (re-compared after normalizing "N: required check failing: main" to the oracle's "N: main"; the first comparison below mis-normalized, the 26 PR numbers are identical)
+first comparison (normalization bug in the test harness, not the audit): got=["1008: required check failing: main","1009: required check failing: main","1038: required check failing: main","1039: required check failing: main","1052: required check failing: main","1057: required check failing: main","1060: required check failing: main","1069: required check failing: main","1090: required check failing: main","1099: required check failing: main","1101: required check failing: main","741: required check failing: main","750: required check failing: main","763: required check failing: main","766: required check failing: main","779: required check failing: main","866: required check failing: main","874: required check failing: main","902: required check failing: main","938: required check failing: main","950: required check failing: main","951: required check failing: main","953: required check failing: main","973: required check failing: main","974: required check failing: main","975: required check failing: main"]
+
+### Faysk/tda required_checks=["transcript-import-postgres","synthetic (ubuntu-latest, .venv/bin/python)"]
+exit: 0   stderr: 
+oracle pending (latest run not finished) — must NOT be reported:
+oracle failing (latest run failed) — must be reported: []
+audit required-check lines:
+pending PRs appearing in required-check lines:
+  none (PASS)
+failing set MATCH
+

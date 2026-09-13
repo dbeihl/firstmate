@@ -1,0 +1,17 @@
+# Live runs against busy public repos: gh pr list --limit 1000 with statusCheckRollup returns HTTP 504 and the audit stops
+# commit: a1ebf4d2d3c4612620a34017d4fce6c43cafbd41   date: 2026-09-13T22:11:00Z
+
+### biomejs/biome
+audit exit: 2  secs: 27
+audit stdout lines: 0
+audit stderr: fm-pr-dressing-audit: could not read open pull requests for biomejs/biome
+same gh query run directly: HTTP 504: 504 Gateway Timeout (https://api.github.com/graphql)
+same query with --limit 40 succeeds, rows: 40
+
+### pnpm/pnpm
+audit exit: 2  secs: 30
+audit stdout lines: 0
+audit stderr: fm-pr-dressing-audit: could not read open pull requests for pnpm/pnpm
+same gh query run directly: HTTP 504: 504 Gateway Timeout (https://api.github.com/graphql)
+same query with --limit 40 succeeds, rows: 40
+

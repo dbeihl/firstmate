@@ -1,0 +1,14 @@
+# Live run: bin/fm-pr-dressing-audit.sh double-d-labs/go-easy-homie
+# commit: a1ebf4d2d3c4612620a34017d4fce6c43cafbd41
+# date: 2026-09-13T22:02:15Z
+# config (isolated FM_HOME): integration_branch=develop reviewer_team=double-d-labs/double-d-labs-reviewers assignees=[dbeihl] required_checks=[CI gate]
+# exit: 0
+## stdout
+https://github.com/double-d-labs/go-easy-homie/pull/485: base branch is main; expected develop
+https://github.com/double-d-labs/go-easy-homie/pull/485: reviewer team missing: double-d-labs/double-d-labs-reviewers
+https://github.com/double-d-labs/go-easy-homie/pull/485: assignees missing: dbeihl
+https://github.com/double-d-labs/go-easy-homie/pull/485: required check failing: CI gate
+## stderr
+## gh subcommands invoked (via logging shim over real gh)
+pr list
+api graphql

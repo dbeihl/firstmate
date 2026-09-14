@@ -1,0 +1,23 @@
+== A: wedged docker ps, run to completion (mechanism: timeout)
+[exit 1 after 77.6s]
+AGENT: pid=80642 age=05-04:33:39 command=claude
+NOT CHECKED: TCP network sockets owned by other users (not run as root)
+NOT CHECKED: TCP network sockets possibly omitted by lsof warning (lsof: WARNING: can't stat() smbfs file system /Volumes/.timemachine/DSNAS._smb._tcp.local./3CB033DE-FFB4-4FCE-A918-EB0D1A0D194D/Backups)
+NOT CHECKED: UDP network sockets owned by other users (not run as root)
+NOT CHECKED: UDP network sockets possibly omitted by lsof warning (lsof: WARNING: can't stat() smbfs file system /Volumes/.timemachine/DSNAS._smb._tcp.local./3CB033DE-FFB4-4FCE-A918-EB0D1A0D194D/Backups)
+NOT CHECKED: running containers (query timed out)
+[28 LISTENER lines omitted]
+hung docker pid 72607 stopped by bound
+
+== B: wedged docker ps, Ctrl-C (INT to the inventory's process group) while the query hangs
+[in-flight query: docker pid 18832 pgid 18827; inventory pgid 18375]
+[consumer saw EOF 0.0s after Ctrl-C; exit 130]
+NOT CHECKED: TCP network sockets owned by other users (not run as root)
+NOT CHECKED: TCP network sockets possibly omitted by lsof warning (lsof: WARNING: can't stat() smbfs file system /Volumes/.timemachine/DSNAS._smb._tcp.local./3CB033DE-FFB4-4FCE-A918-EB0D1A0D194D/Backups)
+NOT CHECKED: UDP network sockets owned by other users (not run as root)
+NOT CHECKED: UDP network sockets possibly omitted by lsof warning (lsof: WARNING: can't stat() smbfs file system /Volumes/.timemachine/DSNAS._smb._tcp.local./3CB033DE-FFB4-4FCE-A918-EB0D1A0D194D/Backups)
+NOT CHECKED: agent processes scan (interrupted)
+NOT CHECKED: containers scan (interrupted)
+NOT CHECKED: simulators scan (interrupted)
+[28 LISTENER lines omitted]
+in-flight docker query stopped by interrupt cleanup

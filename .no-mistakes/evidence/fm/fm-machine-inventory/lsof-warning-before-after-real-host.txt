@@ -1,0 +1,14 @@
+== BEFORE round-11 fix (d1ebf16 inventory) on this real host with the smbfs Time Machine mount
+[exit 1, stderr bytes 0]
+AGENT: pid=80642 age=05-04:40:28 command=claude
+NOT CHECKED: TCP network sockets (lsof query incomplete)
+NOT CHECKED: UDP network sockets (lsof query incomplete)
+[LISTENER lines: 0]
+
+== AFTER (12f4729 target commit), same host
+[exit 1, stderr bytes 0]
+NOT CHECKED: TCP network sockets owned by other users (not run as root)
+NOT CHECKED: TCP network sockets possibly omitted by lsof warning (lsof: WARNING: can't stat() smbfs file system /Volumes/.timemachine/DSNAS._smb._tcp.local./3CB033DE-FFB4-4FCE-A918-EB0D1A0D194D/Backups)
+NOT CHECKED: UDP network sockets owned by other users (not run as root)
+NOT CHECKED: UDP network sockets possibly omitted by lsof warning (lsof: WARNING: can't stat() smbfs file system /Volumes/.timemachine/DSNAS._smb._tcp.local./3CB033DE-FFB4-4FCE-A918-EB0D1A0D194D/Backups)
+[LISTENER lines: 28]

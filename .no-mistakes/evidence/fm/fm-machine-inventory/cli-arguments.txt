@@ -1,0 +1,11 @@
+$ bin/fm-machine-inventory.sh --help
+[exit 0, 51 lines; first/last:]
+#!/usr/bin/env bash
+# fm-machine-inventory.sh - report host-wide resource leaks that need a human
+# Exit 129, 130, or 143 means HUP, INT, or TERM interrupted the run; findings
+# collected so far are still printed, and the interrupted scan and every scan
+# after it are reported as NOT CHECKED.
+set -u
+
+$ bin/fm-machine-inventory.sh --kill-everything
+[exit 2, stdout 0 bytes, stderr 51 usage lines]

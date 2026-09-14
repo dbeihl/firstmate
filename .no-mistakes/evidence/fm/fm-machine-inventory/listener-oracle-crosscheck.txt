@@ -1,0 +1,4 @@
+Independent oracle: lsof -w + ps etime >1 day, excluding '->' and '*:*'
+oracle count:       28  script count:       28
+diff (oracle vs script):
+IDENTICAL

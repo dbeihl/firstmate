@@ -1,0 +1,21 @@
+== perl fallback of bin/fm-timeout-lib.sh fm_run_timed (the one-line shared-library change)
+mechanism: perl
+stdout passthrough: passthrough (rc 0)
+child exit status preserved: rc 3
+bound enforced: rc 124 after 1.4s
+
+== full inventory on the real host under the perl fallback
+[exit 1 after 16.9s]
+AGENT: pid=80642 age=05-04:35:16 command=claude
+CONTAINER: id=1ae2e0135d58 name=mp-mcp-test uptime=438919s
+CONTAINER: id=64d4f30eb912 name=mp-test-pg-01M21J uptime=437462s
+CONTAINER: id=6fcc815faad3 name=nm-mcp-runtime uptime=436686s
+CONTAINER: id=80a1e90247d4 name=nm-mp430-pg-01M28R uptime=195874s
+CONTAINER: id=f72319346e83 name=homehub-db uptime=444527s
+CONTAINER: id=f9da69b1eccf name=mp-test-redis-01M21J uptime=437461s
+CONTAINER: id=fc41f95b585e name=nm-mp430-redis-01M28R uptime=195873s
+NOT CHECKED: TCP network sockets owned by other users (not run as root)
+NOT CHECKED: TCP network sockets possibly omitted by lsof warning (lsof: WARNING: can't stat() smbfs file system /Volumes/.timemachine/DSNAS._smb._tcp.local./3CB033DE-FFB4-4FCE-A918-EB0D1A0D194D/Backups)
+NOT CHECKED: UDP network sockets owned by other users (not run as root)
+NOT CHECKED: UDP network sockets possibly omitted by lsof warning (lsof: WARNING: can't stat() smbfs file system /Volumes/.timemachine/DSNAS._smb._tcp.local./3CB033DE-FFB4-4FCE-A918-EB0D1A0D194D/Backups)
+[28 LISTENER lines omitted]

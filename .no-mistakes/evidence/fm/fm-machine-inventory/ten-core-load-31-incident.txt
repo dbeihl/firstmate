@@ -1,0 +1,49 @@
+$ bin/fm-machine-inventory.sh   # host reporting 10 online cores, loadavg { 29.40 30.12 31.00 }
+AGENT: pid=80642 age=05-04:35:46 command=claude
+CONTAINER: id=1ae2e0135d58 name=mp-mcp-test uptime=438951s
+CONTAINER: id=64d4f30eb912 name=mp-test-pg-01M21J uptime=437494s
+CONTAINER: id=6fcc815faad3 name=nm-mcp-runtime uptime=436718s
+CONTAINER: id=80a1e90247d4 name=nm-mp430-pg-01M28R uptime=195905s
+CONTAINER: id=f72319346e83 name=homehub-db uptime=444559s
+CONTAINER: id=f9da69b1eccf name=mp-test-redis-01M21J uptime=437493s
+CONTAINER: id=fc41f95b585e name=nm-mp430-redis-01M28R uptime=195904s
+LISTENER: protocol=TCP pid=1031 age=71-09:02:10 command=rapportd endpoint=*:57500
+LISTENER: protocol=TCP pid=1031 age=71-09:02:10 command=rapportd endpoint=*:58192
+LISTENER: protocol=TCP pid=1031 age=71-09:02:10 command=rapportd endpoint=*:58193
+LISTENER: protocol=TCP pid=1163 age=71-09:02:00 command=ControlCenter endpoint=*:5000
+LISTENER: protocol=TCP pid=1163 age=71-09:02:00 command=ControlCenter endpoint=*:7000
+LISTENER: protocol=TCP pid=11834 age=11-03:20:24 command=OpenUsage endpoint=127.0.0.1:6736
+LISTENER: protocol=TCP pid=2038 age=71-09:01:12 command=redis-server endpoint=127.0.0.1:6379
+LISTENER: protocol=TCP pid=2038 age=71-09:01:12 command=redis-server endpoint=[::1]:6379
+LISTENER: protocol=TCP pid=31457 age=02-13:11:25 command=nvsync-arm64 endpoint=*:53549
+LISTENER: protocol=TCP pid=38603 age=05-01:06:03 command=Python endpoint=127.0.0.1:8098
+LISTENER: protocol=TCP pid=39399 age=06-03:52:37 command=nvsync-arm64 endpoint=127.0.0.1:11002
+LISTENER: protocol=TCP pid=39399 age=06-03:52:37 command=nvsync-arm64 endpoint=127.0.0.1:55643
+LISTENER: protocol=TCP pid=39399 age=06-03:52:37 command=nvsync-arm64 endpoint=[::1]:11002
+LISTENER: protocol=TCP pid=39399 age=06-03:52:37 command=nvsync-arm64 endpoint=[::1]:55643
+LISTENER: protocol=TCP pid=43775 age=25-23:51:02 command=com.docker.backend endpoint=*:3101
+LISTENER: protocol=TCP pid=43775 age=25-23:51:02 command=com.docker.backend endpoint=*:3111
+LISTENER: protocol=TCP pid=43775 age=25-23:51:02 command=com.docker.backend endpoint=*:5432
+LISTENER: protocol=TCP pid=43775 age=25-23:51:02 command=com.docker.backend endpoint=*:55432
+LISTENER: protocol=TCP pid=43775 age=25-23:51:02 command=com.docker.backend endpoint=*:55440
+LISTENER: protocol=TCP pid=43775 age=25-23:51:02 command=com.docker.backend endpoint=*:56379
+LISTENER: protocol=TCP pid=43775 age=25-23:51:02 command=com.docker.backend endpoint=*:56390
+LISTENER: protocol=TCP pid=76263 age=05-01:16:07 command=Python endpoint=127.0.0.1:3112
+LISTENER: protocol=UDP pid=1031 age=71-09:02:10 command=rapportd endpoint=*:3722
+LISTENER: protocol=UDP pid=1053 age=71-09:02:10 command=identityservicesd endpoint=*:58882
+LISTENER: protocol=UDP pid=1053 age=71-09:02:10 command=identityservicesd endpoint=*:65391
+LISTENER: protocol=UDP pid=1064 age=71-09:02:09 command=sharingd endpoint=*:53646
+LISTENER: protocol=UDP pid=31457 age=02-13:11:25 command=nvsync-arm64 endpoint=*:52166
+LISTENER: protocol=UDP pid=31457 age=02-13:11:25 command=nvsync-arm64 endpoint=*:60443
+LOAD: fifteen-minute=31.00 cores=10
+NOT CHECKED: TCP network sockets owned by other users (not run as root)
+NOT CHECKED: TCP network sockets possibly omitted by lsof warning (lsof: WARNING: can't stat() smbfs file system /Volumes/.timemachine/DSNAS._smb._tcp.local./3CB033DE-FFB4-4FCE-A918-EB0D1A0D194D/Backups)
+NOT CHECKED: UDP network sockets owned by other users (not run as root)
+NOT CHECKED: UDP network sockets possibly omitted by lsof warning (lsof: WARNING: can't stat() smbfs file system /Volumes/.timemachine/DSNAS._smb._tcp.local./3CB033DE-FFB4-4FCE-A918-EB0D1A0D194D/Backups)
+[exit 1]
+
+$ bin/fm-machine-inventory.sh   # boundary: 10 cores, fifteen-minute load exactly 10.00 (not above one per core)
+(no LOAD line)
+
+$ bin/fm-machine-inventory.sh   # load reader broken: sysctl and /proc/loadavg both unavailable
+NOT CHECKED: fifteen-minute load average unavailable
